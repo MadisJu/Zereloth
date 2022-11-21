@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Zereloth.iml" filepath="$PROJECT_DIR$/Zereloth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Zereloth_Client/Zereloth_Client.iml" filepath="$PROJECT_DIR$/Zereloth_Client/Zereloth_Client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Zereloth_Server/Zereloth_Server.iml" filepath="$PROJECT_DIR$/Zereloth_Server/Zereloth_Server.iml" />
+    </modules>
+  </component>
+</project>
