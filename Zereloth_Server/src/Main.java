@@ -1,33 +1,25 @@
 import java.net.*;
 import java.io.*;
+import java.util.ArrayList;
 
 public class Main {
-    public static void main(String[] args) {
-        System.out.println("Hello Server!");
-        Socket socket = null;
-        ServerSocket server = null;
 
-        try{
-            server = new ServerSocket(4200);
-            socket = server.accept();
-            DataInputStream in = new DataInputStream(
-                    new BufferedInputStream(socket.getInputStream()));
-            String s = "";
+    public static ArrayList<ClientManager> clients_sockets; //Global socket list
+    public static void main(String[] args) throws IOException, InterruptedException {
 
-            while(!s.equals("HELLO SERVER!"))
-            {
-                try{
-                    s = in.readUTF();
-                    System.out.println(s);
-                }
-                catch (IOException i )
-                {
-                    System.out.println(i);
-                }
+        clients_sockets = new ArrayList<>();
 
-            }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+
+
+        ConnectionManager CM = new ConnectionManager(4200);
+        Thread CM_R = new Thread(CM);
+        CM_R.start();
+
+        while(true)
+        {
+            Thread.sleep(1000);
+            clients_sockets = CM.clients;
+            System.out.println(clients_sockets.size());
         }
 
     }

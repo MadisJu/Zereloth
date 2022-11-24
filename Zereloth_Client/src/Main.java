@@ -10,11 +10,16 @@ public class Main {
         try{
             socket = new Socket("localhost", 4200);
             DataOutputStream out = new DataOutputStream(socket.getOutputStream());
-            out.writeUTF("HELLO SERVER!");
+            out.writeUTF("Hello server, this is client");
+            while(true)
+            {
+                out.writeUTF("Hello server, this is client");
+                Thread.sleep(1000);
+            }
         } catch (UnknownHostException u)
         {
             System.out.println(u);
-        } catch (IOException i)
+        } catch (IOException | InterruptedException i)
         {
             System.out.println(i);
         }
