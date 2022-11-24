@@ -31,11 +31,6 @@ public class ConnectionManager implements Runnable {
                 Socket temp = this.ss.accept();
                 ClientManager t = new ClientManager(temp, this.con);
                 this.clients.add(t);
-                Thread tt = new Thread(t);
-                t.thread = tt;
-                t.thread.start();
-                BufferedReader i = new BufferedReader(new InputStreamReader(this.clients.get(this.clients.size()-1).getConnection_socket().getInputStream()));
-                System.out.println(i.readLine());
                 this.con++;
             } catch (IOException e) {
                 System.out.println(e);

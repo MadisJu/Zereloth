@@ -9,11 +9,8 @@ public class Main {
 
         try{
             socket = new Socket("localhost", 4200);
-            DataOutputStream out = new DataOutputStream(socket.getOutputStream());
-            out.writeUTF("Hello server, this is client");
             while(true)
             {
-                out.writeUTF("Hello server, this is client");
                 Thread.sleep(1000);
             }
         } catch (UnknownHostException u)

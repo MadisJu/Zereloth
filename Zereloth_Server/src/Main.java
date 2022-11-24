@@ -18,6 +18,14 @@ public class Main {
         while(true)
         {
             Thread.sleep(1000);
+            for (ClientManager cm: clients_sockets)
+            {
+                if(!cm.getConnection_socket().isConnected())
+                {
+                    clients_sockets.remove(cm);
+                }
+
+            }
             clients_sockets = CM.clients;
             System.out.println(clients_sockets.size());
         }
